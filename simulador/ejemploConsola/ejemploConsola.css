@@ -1,0 +1,21 @@
+.consoleContainer {
+    display: flex; 
+}
+
+.console {
+    flex: 1;
+    height: 100px;
+}
+
+.queryContainer {
+    display: flex;
+}
+
+.query {
+    flex: 1;
+}
+
+.send {
+    width: 114px;
+    width: auto
+}
