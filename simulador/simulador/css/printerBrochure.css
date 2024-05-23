@@ -1,0 +1,15 @@
+.printerBrochure {
+    position: absolute; /* Para posición específica */
+    top: 10px; /* Distancia desde la parte superior de cintaFondo */
+    left: 600px; /* Distancia desde la izquierda de cintaFondo */
+    border-color: red;
+    border-style: solid;
+    width: 200px; /* Ajusta el ancho */
+    height: 500px; /* Ajusta la altura */
+    border-radius: 20px;
+    background-image: url("../images/printer.jpg");
+    background-size: cover;
+    z-index: 10;
+}
+
+
