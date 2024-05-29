@@ -1,0 +1,28 @@
+.brochure {
+    width: 400px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.personal-info {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.info-item {
+    margin-bottom: 10px;
+}
+
+.info-item .label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.info-item .value {
+    opacity: 0.8;
+}

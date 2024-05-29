@@ -1,7 +1,7 @@
-@import url("./lectorCardNumber.css");
-@import url("./printerBrochure.css");
-@import url("./printerEnvelope.css");
-@import url("./monitor.css");
+@import url("../css/lectorCardNumber.css");
+@import url("../css/printerBrochure.css");
+@import url("../css/printerEnvelope.css");
+@import url("../css/monitor.css");
 
 body{
     margin-top: 100px;

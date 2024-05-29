@@ -1,0 +1,43 @@
+.envelope {
+    width: 380px;
+    height: 230px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-image: url('../../simulador/images/envelope.png'); /* Imagen de fondo del sobre */
+    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir todo el contenedor */
+    background-position: center; /* Centra la imagen en el contenedor */
+}
+
+.envelope-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bank-logo {
+    height: 50px;
+    width: auto;
+}
+
+.bank-slogan {
+    font-size: 0.9em;
+    color: #333;
+    text-align: right;
+}
+
+.envelope-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.address, .postal-code {
+    font-size: 1em;
+    color: #333;
+    margin-top: 10px;
+}

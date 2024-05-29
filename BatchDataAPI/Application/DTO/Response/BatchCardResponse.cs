@@ -22,7 +22,7 @@ namespace Application.DTO.Response
 
         [JsonPropertyName("Id")]
         public int BatchId { get { return _batchCard.BatchId; } set { _batchCard.BatchId = value; } }
-        [JsonPropertyName("bank name")]
+        [JsonPropertyName("bankName")]
         public string? BankName { get { return _batchCard.BankFormatNav.Name; } set { _batchCard.BankFormatNav.Name = value; } }
         [JsonPropertyName("slogan")]
         public string? Slogan { get { return _batchCard.BankFormatNav.Slogan; } set { _batchCard.BankFormatNav.Slogan = value; } }

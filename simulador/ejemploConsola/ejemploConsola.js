@@ -1,6 +1,6 @@
 import Console from "../connection/console.js";
 import WebSocketConnection from "../connection/webscketConnection.js";
-
+                               
 document.addEventListener('DOMContentLoaded', function() {
     let domain = 'ws://localhost:8080';
     let batchConsole = document.getElementById("batchConsole");

@@ -1,0 +1,106 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    background-image: url(https://media.istockphoto.com/id/695001370/es/foto/textura-hormig%C3%B3n-pulido-piso-de-concreto-%C3%A1spero-fondo-de-construcci%C3%B3n.jpg?s=612x612&w=0&k=20&c=y26WltZ7eiANTyRzuxJVCdXFG33a6fm-nrQxpEWwUQY=); 
+    background-position: center;
+     
+}   
+
+.main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* ---- CONVEROYBELT ----*/
+
+.singelCoveryoltBelt {
+    height: 100%;
+    width: 25%;
+    background-color: rgb(37, 37, 37);
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    border-top: 15px solid red;
+    border-bottom: 15px solid red;
+}
+
+.coveryorBeltContainer{
+    display: flex;
+    height: 700px;
+    width: 100%;
+    background-color: black;
+}
+
+/* ---- CARDREADER ----*/
+#cardLector{
+    position: absolute;
+    width: 400px;
+    height: 900px;
+    background-image: url(../../simulador/images/scanner.jpg);
+    background-size: cover; 
+    background-position: center; 
+    left: 25%;
+    border-radius: 5%;
+}
+
+/* ---- PRINTINGSTATIONS ----*/
+
+.pritingStationBox{
+    position: absolute;
+    width: 400px;
+    height: 900px;
+    background-image: url(../../simulador/images/madera.jpg);
+    background-size: cover; 
+    background-position: center;
+    border-radius: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;    
+    padding: 15px;
+}
+
+.printerContainer{
+    width: 100%;
+    height: 300px;
+    background-image: url(../../simulador/images/printerHp.png);
+    background-size: cover; 
+    background-position: center;
+}
+
+/* ---- BROCHUREPRINTER ----*/
+#pritingStationBox-1{
+    left: 50%;
+}
+
+/* ---- ENVELOPEPRINTER ----*/
+#pritingStationBox-2{
+    left: 75%;
+}
+
+/* ---- MONITOR ----*/
+.monitorContainer{      
+    height: 400px;
+    width: 350px;
+    background-image: url(../../simulador/images/monitorXL.png);
+    background-size: cover;
+    background-position: center;
+}
+
+.monitorText {
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 12px;
+    text-align: left;
+    width: 150px;
+    height: 90px;
+    line-height: 30px;
+}
+
+/* ---- CONVEROYBELTHOLE ----*/
+.holeRunningBelt {
+    width: 250px;
+}
