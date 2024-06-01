@@ -9,17 +9,11 @@ export class PrintingStation {
     this._container = container;
     this.printerQueue = new Queue();
     this.alreadyPrintedQueue = new Queue();
-    //this._typePaper = typePaper;
     this._coveryotrBelt = coveryorBelt;
     connection.connect(url, () => {});
   }
 
   print(data) {
-//    if (this._typePaper == "brochure") 
-//      paperElem = new Brochure(data);
-//    else if (_typePaper == "envelope") 
-//      paperElem = new Envelope(data);
-    
     this.printerQueue.enqueue(data);   
     let forPrint = this.printerQueue.dequeue();
     if (this.alreadyPrintedQueue.size() >= 3)
@@ -30,7 +24,6 @@ export class PrintingStation {
   addItem(item) {
     if (this.alreadyPrintedQueue.size() != 0) {
       let data = this.alreadyPrintedQueue.dequeue();
-      //paper.addItem(item);
       displayMonitor(this._container, data, "priting");
       _coveryotrBelt.addItem(container, paper);
     } else {

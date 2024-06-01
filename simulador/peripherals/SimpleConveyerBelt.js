@@ -16,12 +16,10 @@ export class SimpleConveyerBelt {
     connection.connect(url, () => {});
   }
 
-  isReady() {}
-
-  addItem(item) { // retorne tru o false | retorne si puede recibir o no --> ready()
-    if (this._item) {
+  addItem(item) {
+    if (this._item != null) {
       this._rts.send("Desincronizacion");
-      alert("Desincronizacion");
+      console.log("Desincronizacion");
     } 
     else 
       this._item = item;
@@ -31,6 +29,7 @@ export class SimpleConveyerBelt {
     if (this._item != null) {
       this.objectQueue.enqueue(1);
       drawObject(this._container, this._item, this._typeObjectDraw);
+      this._item = null;
     } 
     else {
       this.objectQueue.enqueue(0);
@@ -40,7 +39,8 @@ export class SimpleConveyerBelt {
     if (this.objectQueue.size() == this._maxLenght) {
       let item = this.objectQueue.dequeue();
       if (item != 0){
-        this._widget.addItem(item);
+        if(this._widget != null)
+          this._widget.addItem(item);
         deleteObject(this._container, this._item, _typeObjectDraw);
       } 
       else{
@@ -53,16 +53,3 @@ export class SimpleConveyerBelt {
     this._centralCoveroyBelt.stop();
   }
 }
-
-
-
-
-/// VA A SER EL CENTRALBELT --> Se conectoa con el RTS
-// posta donde ingrese el num de lote (input) junto con el boton RUN --> callback
-// connection.connect(url, () => {
-//   this.play(); --> setear un delay cada x cant seg y meta las tarjetas a la cinta.
-// });
-
-// la cinta tenga un getter de la velocidad
-
-// method --> boton() : envia un dato al RTS

@@ -1,7 +1,7 @@
 export class DataParse {
     constructor(jsonData, size)  
     {
-        this._index = 0;
+        this._index = -1;
         this._size = size;
         this._jsonData = jsonData;
     } 
@@ -10,43 +10,43 @@ export class DataParse {
         return ++this._index < this._size;
     }
 
-    get bankName() {
+    bankName() {
         return this._jsonData.bankName;
     }
 
-    get slogan() {
+    slogan() {
         return this._jsonData.slogan;
     }
 
-    get logo() {
+    logo() {
         return this._jsonData.logo;
     }
 
-    get cardNumber() {
-        return this._jsonData.usersData[index].cardNumber;
+    cardNumber() {
+        return this._jsonData.usersData[this._index].cardNumber;
     }
 
-    get name() {
-        return this._jsonData.usersData[index].userName;
+    name() {
+        return this._jsonData.usersData[this._index].userName;
     }
 
-    get surname() {
-        return this._jsonData.usersData[index].userSurname;
+    surname() {
+        return this._jsonData.usersData[this._index].userSurname;
     }
 
-    get address() {
-        return this._jsonData.usersData[index].address;
+    address() {
+        return this._jsonData.usersData[this._index].address;
     }
 
-    get city() {
-        return this._jsonData.usersData[index].city;
+    city() {
+        return this._jsonData.usersData[this._index].city;
     }
 
-    get state() {
-        return this._jsonData.usersData[index].state;
+    state() {
+        return this._jsonData.usersData[this._index].state;
     }
 
-    get zipCode() {
-        return this._jsonData.usersData[index].zipCode;
+    zipCode() {
+        return this._jsonData.usersData[this._index].zipCode;
     }
 }

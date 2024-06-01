@@ -1,5 +1,5 @@
 export function drawCard(container, data) {
-    return container.innerHTML = ` 
+    container.innerHTML += ` 
     <div class="credit-card-class-container">
         <div class="bank-name">${data.bankName()}</div>
         <div class="card-number">${data.cardNumber()}</div>
@@ -12,7 +12,7 @@ export function drawCard(container, data) {
 }
   
 export function drawBrochure(container, data) {
-    return container.innerHTML = ` 
+    container.innerHTML += ` 
     <div class="brochure-class-container">
         <div class="personal-info">
             <div class="info-item">
@@ -37,7 +37,7 @@ export function drawBrochure(container, data) {
 }
   
 export function drawEnvelope(container, data) {
-    return container.innerHTML = ` 
+    container.innerHTML += ` 
     <div class="envelope-class-container">
         <div class="envelope-header">
             <img src="${data.logo()}" alt="Logo del Banco" class="bank-logo">

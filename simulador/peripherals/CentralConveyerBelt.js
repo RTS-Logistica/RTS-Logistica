@@ -19,8 +19,8 @@ export class CentralConveyerBelt {
         this._simpleConveyerBelts[i].play();
     }, this._customSpeed);
     setInterval(() => {
-      itemIterator.next();
-      this._simpleConveyerBelts[0].addItem(itemIterator);
+      if(itemIterator.next())   
+        this._simpleConveyerBelts[0].addItem(itemIterator);
     }, this._addItemTimer);
   }
 

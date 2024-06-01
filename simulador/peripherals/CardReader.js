@@ -27,13 +27,13 @@ export class CardReader{
     
     addItem(data){
         if(this._badReadTimer = 0){
-            cardNumberRead = this.badRead();
+            cardNumberRead = badRead();
             this._rts.send("Lectura incorrecta");
             this._converoyBelt.stop();
             this._badReadTimer = _badReadTime;
         }
         else{
-            cardNumberRead = this.okRead();
+            cardNumberRead = okRead();
             this._converoyBelt.addItem(data);
             displayMonitor(this._container, cardNumberRead, "lector");
         }

@@ -16,7 +16,7 @@ body{
 /* ---- CONVEROYBELT ---- */
 .conveyer-belt-container{
     display: flex;
-    height: 700px;
+    height: 20vh;
     width: 100%;
     background-color: black;
 }
@@ -35,8 +35,8 @@ body{
 /* ---- CARDREADER ---- */
 #card-lector{
     position: absolute;
-    width: 400px;
-    height: 900px;
+    width: 6vw;
+    height: 12vh;
     background-image: url(../../simulador/images/scanner.jpg);
     background-size: cover; 
     background-position: center; 
@@ -51,8 +51,8 @@ body{
 
 .priting-station-box{
     position: absolute;
-    width: 400px;
-    height: 900px;
+    width: 6vw;
+    height: 12vh;
     background-image: url(../../simulador/images/madera.jpg);
     background-size: cover; 
     background-position: center;
@@ -84,16 +84,16 @@ body{
 
 /* ---- MONITOR ---- */
 .monitor-container{      
-    height: 400px;
-    width: 350px;
+    height: 50%;
+    width: 100%;
     background-image: url(../../simulador/images/monitorXL.png);
     background-size: cover;
     background-position: center;
 }
 
 .monitor-lector-container{
-    height: 150px;
-    width: 400px;
+    height: 20%;
+    width: 100%;
     background-image: url(../../simulador/images/monitorXL.png);
     background-size: cover;
     background-position: center;
@@ -105,7 +105,6 @@ body{
 .monitor-text {
     transform: translate(-50%, -50%);
     color: white;
-    font-size: 12px;
     text-align: left;
     width: 150px;
     height: 90px;
@@ -115,7 +114,7 @@ body{
 /* ---- CONVEROYBELTHOLE ---- */
 .hole-running-belt {
     width: 250px;
-    height: 400px;
+    height: 300px;
     background-color: red;  
 }
 
@@ -123,9 +122,9 @@ body{
 .lote-box-container {
     position: absolute;
     left: 0%;
-    top: 13%;
-    width: 1000px;
-    height: 1000px;
+    top: 0;
+    width: 50vw;
+    height: 30vh;
     background-color: #414040;
     display: flex;
     flex-direction: column;
@@ -141,7 +140,6 @@ body{
     border-radius: 15px;
     height: 20%;
     width: 90%;
-    font-size: 100px;
     text-align: center;
 }
 
@@ -152,7 +150,6 @@ body{
     cursor: pointer;
     height: 20%;
     width: 40%;
-    font-size: 80px;
     text-align: center;
 }
 
@@ -194,5 +191,4 @@ body{
     font-size: 1.5em;
     font-family: 'Courier New', Courier, monospace;
     text-align: center;
-    font-size: 150px;
 }
