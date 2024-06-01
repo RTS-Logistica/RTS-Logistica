@@ -15,9 +15,10 @@ const brochurePrinterContainer = document.getElementById('priting-station-box-1'
 const envelopeContainer = document.getElementById('priting-station-box-2');
 
 // ------ SIMULATION VARIABLES ------ //
-const urlConnection = 'ws://localhost:8080';
-const conveyerBeltSpeed = 3000;
-const timerToAddItemOnConveyerBelt = 4000;
+const domain = 'ws://localhost:8080';
+const urlConnection = 'ws://127.0.0.1:5500';
+const conveyerBeltSpeed = 3;
+const timerToAddItemOnConveyerBelt = 4;
 const maxSizeElementOnConveyerBelt = 5;
 const arrayOfCardsNumbers = ['1', '2', '3', '4', '5', '1', '2', '3', '4', '5', '1', '2', '3', '4', '5', '1', '2', '3', '4', '5'];
 const badReadTimer = 12;

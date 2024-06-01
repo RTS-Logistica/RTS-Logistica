@@ -1,55 +1,52 @@
 export class DataParse {
-    constructor(jsonData, index)  
+    constructor(jsonData, size)  
     {
-        this._bankName = jsonData.bankName;
-        this._slogan = jsonData.slogan;
-        this._logo = jsonData.logo;
-        this._cardNumber = jsonData.usersData[index].cardNumber;
-        this._name = jsonData.usersData[index].userName;
-        this._surname = jsonData.usersData[index].userSurname;
-        this._address = jsonData.usersData[index].address;
-        this._city = jsonData.usersData[index].city;
-        this._state = jsonData.usersData[index].state;
-        this._zipCode = jsonData.usersData[index].zipCode;
+        this._index = 0;
+        this._size = size;
+        this._jsonData = jsonData;
     } 
 
+    next(){
+        return ++this._index < this._size;
+    }
+
     get bankName() {
-        return this._bankName;
+        return this._jsonData.bankName;
     }
 
     get slogan() {
-        return this._slogan;
+        return this._jsonData.slogan;
     }
 
     get logo() {
-        return this._logo;
+        return this._jsonData.logo;
     }
 
     get cardNumber() {
-        return this._cardNumber;
+        return this._jsonData.usersData[index].cardNumber;
     }
 
     get name() {
-        return this._name;
+        return this._jsonData.usersData[index].userName;
     }
 
     get surname() {
-        return this._surname;
+        return this._jsonData.usersData[index].userSurname;
     }
 
     get address() {
-        return this._address;
+        return this._jsonData.usersData[index].address;
     }
 
     get city() {
-        return this._city;
+        return this._jsonData.usersData[index].city;
     }
 
     get state() {
-        return this._state;
+        return this._jsonData.usersData[index].state;
     }
 
     get zipCode() {
-        return this._zipCode;
+        return this._jsonData.usersData[index].zipCode;
     }
 }
