@@ -8,7 +8,7 @@ export class Brochure {
         this._zip = jsonData.zip;
         this._address = jsonData.address;
         this.cardBank = null;
-        this.objectType = "tag"
+        this.objectType = "brochure"
     } 
 
     addItem(item){

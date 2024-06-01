@@ -1,14 +1,64 @@
-import CoveroyBelt from "../peripherals/ConveroyBelt.js";
-import PrintingStation from "../peripherals/PrintingStation.js";
-import WebSocketConnection from "../connection/webscketConnection.js";
-                               
+import { centralCoveyerBelt } from './initializations.js'; 
+import { DataParse } from "../peripherals/Elements/DataParse.js";
+
 document.addEventListener('DOMContentLoaded', function() {
-    let domain = 'ws://localhost:8080';
-    const secondBeltObject = document.querySelector('#coveryoreBelt-2');
-    
-    const fourBelt = new CoveroyBelt(domain, new WebSocketConnection(), null);
-    const envelopePrinter = new PrintingStation(domain, new WebSocketConnection(), fourBelt, "Envelope");
-    const thridBelt = new CoveroyBelt(domain, new WebSocketConnection(), envelopePrinter);
-    const tagPrinter = new PrintingStation(domain, new WebSocketConnection(), thridBelt, "A4");
-    const secondBelt = new CoveroyBelt(domain, secondBeltObject,  new WebSocketConnection(), tagPrinter);
+    const startButton = document.getElementById('start-button');
+    const stopButton = document.getElementById('stop-button');
+    const batchIdInput = document.getElementById('lote-id-input');
+    let dataParse = null;
+    let running = false;
+    let indexUserData = 0;
+
+    function runLoop() {
+        if (!running) {
+            return;
+        }
+
+        // el RTS tendria que DataBatch la data del lote
+        centralCoveyerBelt.play(dataParse);
+        indexUserData++;
+
+        //*1
+        requestAnimationFrame(runLoop);
+    }
+
+    startButton.addEventListener('click', function() {
+        let batchId = parseInt(batchIdInput.value);
+
+        if (batchId >= 1 && batchId <= 4) {
+            if (!running) {
+                running = true;
+                runLoop(); 
+            }
+        } else {
+            console.log('El batchId debe ser un número entre 1 y 4.');
+        }
+    });
+
+    stopButton.addEventListener('click', function() {
+        running = false; 
+        console.log('El bucle se ha detenido.');
+    });
+
+    fetch('./batchData/DataBatch-ID1.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error al cargar el archivo JSON');
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Aquí puedes trabajar con los datos obtenidos del JSON
+            console.log(data);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
 });
+
+
+
+
+// *1: Método que le dice al navegador que ejecute una función específica antes del próximo repintado de 
+//     la página. Es una manera eficiente de realizar animaciones y bucles continuos sin bloquear el hilo 
+//     principal del navegador.

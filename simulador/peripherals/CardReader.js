@@ -1,15 +1,14 @@
-import { showInMonitor } from "../simulatorTest/drawers/cardLectorDrawers.js";
-import BankCard from "../peripherals/Elements/BankCard.js";
+import { displayMonitor } from "../simulatorTest/drawers/drawersConstroller.js";
 
 export class CardReader{
 
-    constructor(url, container, connection, converoyBelt, cardList){
+    constructor(url, container, connection, converoyBelt, cardList, badReadTime){
         this._rts = connection;
         this._container = container;
         this._converoyBelt = converoyBelt
         this._cardList = cardList;
-        this.timerOfBadReadTimer = 12;
-        this.badReadTimer = this.timerOfBadReadTimer;
+        this._badReadTime = badReadTime;
+        this._badReadTimer = this._badReadTime;
         this.lastCardIndex = 0;
         connection.connect(url, () => {});
     }
@@ -25,17 +24,18 @@ export class CardReader{
         }
         return randomNumber;
     };
+    
     addItem(data){
-        if(this.badReadTimer = 0){
+        if(this._badReadTimer = 0){
             cardNumberRead = this.badRead();
             this._rts.send("Lectura incorrecta");
             this._converoyBelt.stop();
-            this.badReadTimer = timerOfBadReadTimer;
+            this._badReadTimer = _badReadTime;
         }
         else{
             cardNumberRead = this.okRead();
-            this._converoyBelt.addItem(new BankCard (data));
-            showInMonitor(this._container, cardNumberRead);
+            this._converoyBelt.addItem(data);
+            displayMonitor(this._container, cardNumberRead, "lector");
         }
     };
 }

@@ -10,81 +10,50 @@
     <title>RTS</title>
 </head>
 <body>
-    <div class="main">
-        <div class="coveryorBeltContainer">
-            <div id="coveryoreBelt-1" class="singelCoveryoltBelt">
-                <div class="holeRunningBelt"></div>
-                <div class="credit-card">
-                    <div class="bank-name">Banco Ejemplo</div>
-                    <div class="card-number">1234 5678 9012 3456</div>
-                    <div class="card-holder">
-                        <span class="label">Nombre del Titular:</span>
-                        <span class="name">Juan Pérez</span>
-                    </div>
-                </div>
+    <div class="main">        
+        <div class="lote-box-container">
+            <input type="text" id="lote-id-input" placeholder="Número de lote">
+            <button id="start-button" class="action-button">START</button>
+            <button id="stop-button" class="action-button">STOP</button>
+        </div> 
+
+        <div class="conveyer-belt-container">
+            <div id="conveyer-belt-1" class="singel-conveyer-belt">
             </div>
-            <div id="coveryoreBelt-2" class="singelCoveryoltBelt">
-                <div class="brochure">
-                    <div class="personal-info">
-                        <div class="info-item">
-                            <span class="label">Nombre y Apellido:</span>
-                            <span class="value">Juan Pérez</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="label">Dirección:</span>
-                            <span class="value">Calle Falsa 123</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="label">Ciudad:</span>
-                            <span class="value">Ciudad Ejemplo</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="label">Código Postal:</span>
-                            <span class="value">12345</span>
-                        </div>
-                    </div>
-                    <div class="credit-card">
-                        <div class="bank-name">Banco Ejemplo</div>
-                        <div class="card-number">1234 5678 9012 3456</div>
-                        <div class="card-holder">
-                            <span class="label">Nombre del Titular:</span>
-                            <span class="name">Juan Pérez</span>
-                        </div>
-                    </div>
-                </div>
+            <div id="conveyer-belt-2" class="singel-conveyer-belt">
             </div>
-            <div id="coveryoreBelt-3" class="singelCoveryoltBelt">
-                <div class="envelope">
-                    <div class="envelope-header">
-                        <img src="https://via.placeholder.com/100x50" alt="Logo del Banco" class="bank-logo">
-                        <div class="bank-slogan">Tu confianza, nuestro compromiso</div>
-                    </div>
-                    <div class="envelope-footer">
-                        <div class="address">Calle Falsa 123</div>
-                        <div class="postal-code">12345 Ciudad Ejemplo</div>
-                    </div>
-                </div>
+            <div id="conveyer-belt-3" class="singel-conveyer-belt">
             </div>
-            <div id="coveryoreBelt-4" class="singelCoveryoltBelt"></div>
-        </div>
-        <div id="cardLector"></div>
-        <div class="pritingStationBox" id="pritingStationBox-1">
-            <div class="printerContainer" id="tagPrinter"></div>
-            <div class="monitorContainer">
-                <div class="monitorText">
-                </div>
-            </div>
-        </div>
-        <div class="pritingStationBox" id="pritingStationBox-2">
-            <div class="printerContainer" id="envelopePrinter"></div>
-            <div class="monitorContainer">
-                <div class="monitorText"></div>
+            <div id="conveyer-belt-4" class="singel-conveyer-belt">
             </div>
         </div>
         
-        
-        
+        <div id="card-lector">
+            <div class="monitor-lector-container">
+                <div class="monitor-text">
+                </div>
+            </div>
+        </div>
+
+        <div class="priting-station-box" id="priting-station-box-1">
+            <div class="printer-container" id="brochure-printer"></div>
+            <div class="monitor-container">
+                <div class="monitor-text">
+                </div>
+            </div>
+        </div>
+
+        <div class="priting-station-box" id="priting-station-box-2">
+            <div class="printer-container" id="envelope-printer"></div>
+            <div class="monitor-container">
+                <div class="monitor-text"></div>
+            </div>
+        </div>
+
+        <div class="display-container">
+            <div class="display-message" id="displayMessage">Mensaje de prueba</div>
+        </div>
     </div>
 </body>
-<script src="simulator.js"></script>
+<script type="module" src="simulator.js"></script>
 </html>

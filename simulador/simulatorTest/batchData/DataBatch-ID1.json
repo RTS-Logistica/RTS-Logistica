@@ -1,0 +1,188 @@
+{
+  "Id": 1,
+  "bankName": "BBVA Frances",
+  "slogan": "Creando Oportunidades",
+  "logo": "https://i.pinimg.com/originals/5a/55/9d/5a559d02bc8996d233ba05d8fb2d56e3.png",
+  "usersData": [
+    {
+      "cardNumber": 193883332984,
+      "userName": "Pedro",
+      "userSurname": "Torres",
+      "address": "Hiprito Yrigiyen 6764",
+      "city": "Mina Clavero",
+      "state": "Santa Fe",
+      "zipCode": 8350
+    },
+    {
+      "cardNumber": 313635702648,
+      "userName": "Pedro",
+      "userSurname": "Fernandez",
+      "address": "Francisco Pienovi 5272",
+      "city": "Palermo",
+      "state": "Corrientes",
+      "zipCode": 7190
+    },
+    {
+      "cardNumber": 409859330226,
+      "userName": "Carlos",
+      "userSurname": "Garcia",
+      "address": "Av. Manuel Belgrano 1773",
+      "city": "Resistencia",
+      "state": "Tucumán",
+      "zipCode": 5954
+    },
+    {
+      "cardNumber": 442479958502,
+      "userName": "Ana",
+      "userSurname": "Sanchez",
+      "address": "Francisco Pienovi 1866",
+      "city": "La Boca",
+      "state": "Mendoza",
+      "zipCode": 3812
+    },
+    {
+      "cardNumber": 443718292223,
+      "userName": "Sofia",
+      "userSurname": "Torres",
+      "address": "Castro Barro 8461",
+      "city": "Las Leñas",
+      "state": "Buenos Aires",
+      "zipCode": 4578
+    },
+    {
+      "cardNumber": 493871641950,
+      "userName": "Diego",
+      "userSurname": "Garcia",
+      "address": "Cochabamba 1647",
+      "city": "Yerba Buena",
+      "state": "Córdoba",
+      "zipCode": 6852
+    },
+    {
+      "cardNumber": 517205147808,
+      "userName": "Laura",
+      "userSurname": "Sanchez",
+      "address": "Juan Domingo Peron 4296",
+      "city": "Resistencia",
+      "state": "Santa Fe",
+      "zipCode": 2692
+    },
+    {
+      "cardNumber": 531576477471,
+      "userName": "Valentina",
+      "userSurname": "Martinez",
+      "address": "Las Heras 6734",
+      "city": "Mina Clavero",
+      "state": "Santa Fe",
+      "zipCode": 6886
+    },
+    {
+      "cardNumber": 550500446342,
+      "userName": "Ana",
+      "userSurname": "Martinez",
+      "address": "Castro Barro 7940",
+      "city": "Mina Clavero",
+      "state": "Tucumán",
+      "zipCode": 9054
+    },
+    {
+      "cardNumber": 564322736034,
+      "userName": "Diego",
+      "userSurname": "Lopez",
+      "address": "Av. Independencia 5615",
+      "city": "La Boca",
+      "state": "Buenos Aires",
+      "zipCode": 3478
+    },
+    {
+      "cardNumber": 616570514581,
+      "userName": "Pedro",
+      "userSurname": "Fernandez",
+      "address": "Hiprito Yrigiyen 2855",
+      "city": "Mina Clavero",
+      "state": "Santa Fe",
+      "zipCode": 9295
+    },
+    {
+      "cardNumber": 652638819004,
+      "userName": "Valentina",
+      "userSurname": "Gonzalez",
+      "address": "Av. Mitre 7100",
+      "city": "Mina Clavero",
+      "state": "Mendoza",
+      "zipCode": 3309
+    },
+    {
+      "cardNumber": 675001445824,
+      "userName": "Maria",
+      "userSurname": "Sanchez",
+      "address": "Av. Manuel Belgrano 2519",
+      "city": "Florencio Varela",
+      "state": "Córdoba",
+      "zipCode": 9211
+    },
+    {
+      "cardNumber": 731014440275,
+      "userName": "Carlos",
+      "userSurname": "Gonzalez",
+      "address": "Francisco Pienovi 4327",
+      "city": "La Boca",
+      "state": "Buenos Aires",
+      "zipCode": 2492
+    },
+    {
+      "cardNumber": 819811724854,
+      "userName": "Lucas",
+      "userSurname": "Lopez",
+      "address": "Hiprito Yrigiyen 6879",
+      "city": "San Lorenzo",
+      "state": "Buenos Aires",
+      "zipCode": 3936
+    },
+    {
+      "cardNumber": 858235777653,
+      "userName": "Pedro",
+      "userSurname": "Fernandez",
+      "address": "Av. Cabildo 5825",
+      "city": "Mina Clavero",
+      "state": "Tucumán",
+      "zipCode": 2813
+    },
+    {
+      "cardNumber": 877566093970,
+      "userName": "Lucas",
+      "userSurname": "Fernandez",
+      "address": "Av. Independencia 4664",
+      "city": "Palermo",
+      "state": "Chaco",
+      "zipCode": 8359
+    },
+    {
+      "cardNumber": 934895327027,
+      "userName": "Carlos",
+      "userSurname": "Martinez",
+      "address": "Av. Mitre 3353",
+      "city": "Florencio Varela",
+      "state": "Mendoza",
+      "zipCode": 2078
+    },
+    {
+      "cardNumber": 943177695623,
+      "userName": "Ana",
+      "userSurname": "Torres",
+      "address": "Castro Barro 3421",
+      "city": "Florencio Varela",
+      "state": "Entre Ríos",
+      "zipCode": 2921
+    },
+    {
+      "cardNumber": 949148462237,
+      "userName": "Lucas",
+      "userSurname": "Garcia",
+      "address": "Av. Manuel Belgrano 2808",
+      "city": "Mina Clavero",
+      "state": "Salta",
+      "zipCode": 6851
+    }
+  ]
+}

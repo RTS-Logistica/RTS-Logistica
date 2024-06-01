@@ -1,9 +1,9 @@
-import Queue from "./Collections/Queue";
-import { drawObject, deleteObject, drawHole, deleteHole } from "../simulatorTest/drawers/converoyBeltDrawers.js";
+import Queue from "./Collections/Queue.js";
+import { drawObject, deleteObject, drawHole, deleteHole } from "../simulatorTest/drawers/drawersConstroller.js";
 
-export class SimpleConveroyBelt {
+export class SimpleConveyerBelt {
   constructor(url, container, connection,
-              widget, maxLenght, centralCoveroyBelt)
+              widget, maxLenght, centralCoveroyBelt, typeObjectDraw)
   {
     this._rts = connection;
     this._container = container;
@@ -11,9 +11,12 @@ export class SimpleConveroyBelt {
     this._widget = widget;
     this._maxLenght = maxLenght;
     this._item = null;
+    this._typeObjectDraw = typeObjectDraw;
     this.objectQueue = new Queue();
     connection.connect(url, () => {});
   }
+
+  isReady() {}
 
   addItem(item) { // retorne tru o false | retorne si puede recibir o no --> ready()
     if (this._item) {
@@ -27,7 +30,7 @@ export class SimpleConveroyBelt {
   play() {
     if (this._item != null) {
       this.objectQueue.enqueue(1);
-      drawObject(this._container, this._item);
+      drawObject(this._container, this._item, this._typeObjectDraw);
     } 
     else {
       this.objectQueue.enqueue(0);
@@ -38,7 +41,7 @@ export class SimpleConveroyBelt {
       let item = this.objectQueue.dequeue();
       if (item != 0){
         this._widget.addItem(item);
-        deleteObject(this._container, this._item);
+        deleteObject(this._container, this._item, _typeObjectDraw);
       } 
       else{
         deleteHole(this._container);
