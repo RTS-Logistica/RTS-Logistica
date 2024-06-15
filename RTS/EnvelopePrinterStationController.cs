@@ -24,7 +24,7 @@ namespace RTS
         protected override void OnMessage(MessageEventArgs e)
         {
             if (!e.Data.Substring(0, 4).Equals("ping"))
-                Console.WriteLine($"CardController: {e.Data}");
+                Console.WriteLine($"Impresora de sobres: {e.Data}");
         }
 
         public void SendMessage(CardResponse batchCard)

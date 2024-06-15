@@ -21,7 +21,7 @@ namespace RTS
 
         protected override void OnMessage(MessageEventArgs e)
         {
-            Console.WriteLine($"BatchController: {e.Data}");
+            Console.WriteLine($"Nuevo Lote de tarjetas:\n {e.Data}");
             batchData = JsonConvert.DeserializeObject<BatchRequest>(e.Data);
         }
 

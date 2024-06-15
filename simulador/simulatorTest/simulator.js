@@ -9,14 +9,26 @@ let currentData;
 export function stopSimulation() {
     running = false;
     centralCoveyerBelt.stop();
-    document.getElementById("start-button").classList.remove("disabledBtn");
     document.getElementById("speed").classList.remove("disabledBtn");
     document.getElementById("maxBatchSize").classList.remove("disabledBtn");
     document.getElementById("lote-id-input").classList.remove("disabledBtn");
+    document.getElementById("stop-button").classList.add("disabledBtn");
     document.getElementById("addItemMilliseconds").classList.remove("disabledBtn");
+    document.getElementById("start-button").innerHTML = "START";
     cardReader.restartCardCounter();
     envelopePrinter.restartCardCounter();
     brochurePriter.restartCardCounter();
+}
+
+export function togglePauseSimulation() {
+    const stopButton = document.getElementById('stop-button');
+    if(stopButton.innerHTML == "PAUSE") { 
+        centralCoveyerBelt.stop();  
+        document.getElementById("stop-button").innerHTML = "RUN";
+    } else {
+        centralCoveyerBelt.play(currentData);
+        document.getElementById("stop-button").innerHTML = "PAUSE";
+    }
 }
 
 document.addEventListener('DOMContentLoaded', async function() {
@@ -38,7 +50,6 @@ document.addEventListener('DOMContentLoaded', async function() {
             connection.send(JSON.stringify(jsonBatchData));
             currentData = new DataParse(jsonBatchData, jsonBatchData.usersData.length);
             centralCoveyerBelt.play(currentData);
-            document.getElementById("start-button").classList.add("disabledBtn");
             document.getElementById("speed").classList.add("disabledBtn");
             document.getElementById("maxBatchSize").classList.add("disabledBtn");
             document.getElementById("lote-id-input").classList.add("disabledBtn");
@@ -46,20 +57,19 @@ document.addEventListener('DOMContentLoaded', async function() {
         });
     }
 
-    stopButton.addEventListener('click', async function() {
-        let stopBtn = document.getElementById("stop-button");
-        if(stopBtn.innerHTML == "STOP") { 
-            centralCoveyerBelt.stop();  
-            document.getElementById("stop-button").innerHTML = "RUN";
-        } else {
-            centralCoveyerBelt.play(currentData);
-            document.getElementById("stop-button").innerHTML = "STOP";
-        }
-    });
+    stopButton.addEventListener('click', togglePauseSimulation);
 
     startButton.addEventListener('click', async function() {
+        if(startButton.innerHTML == "START")
+            document.getElementById("start-button").innerHTML = "RESET";
+        else
+            window.location.reload();
+
         if (running) 
             return;
+
+        document.getElementById("stop-button").classList.remove("disabledBtn");
+
         let batchId = parseInt(batchIdInput.value);
 
         if (batchId >= 1 && batchId <= 4) {
