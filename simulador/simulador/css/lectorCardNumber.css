@@ -1,0 +1,25 @@
+.lectorCardNumber {
+    position: absolute; 
+    top: 10px; 
+    left: 200px; 
+    border-color: red;
+    border-style: solid;
+    height: 500px; 
+    width: 200px; 
+    border-radius: 20px;
+    background-color: red;
+    z-index: 10;
+    background-image: url("../images/scanner.jpg");
+    background-size: cover;
+}
+.showCardNumber{
+    position: absolute;
+    top: 400px;
+    left: 50px;
+    display: inline-block; 
+    border: 1px solid black;
+    width: 100px;
+    height: 20px;
+    background-color: white; 
+}
+

@@ -1,0 +1,39 @@
+.card-class-container {
+    width: 5vw;
+    background: linear-gradient(135deg, #007bff, #00c6ff);
+    color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 0.5rem;
+    overflow: hidden;
+}
+
+.bank-name {
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+.card-number {
+    font-size: 1.2em;
+    letter-spacing: 2px;
+    margin: 7px 0;
+}
+
+.card-holder {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-holder .label {
+    font-size: 0.9em;
+    opacity: 0.8;
+}
+
+.card-holder .name {
+    font-size: 1.2em;
+    white-space: nowrap;
+}
