@@ -12,7 +12,29 @@ body{
     justify-content: center;
     align-items: flex-start;
     width: 100vw;
-    height: 70vh;
+}
+
+#inputs {
+    padding: 1rem;
+    width: 80vw;
+    margin:auto;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1rem;
+    justify-content: center;
+    align-items: center;
+    background-color: #414040;
+    border-radius: 15px;
+}
+
+#monitor {
+    height: 15vw;
+    width: 20vw;
+}
+
+.hidden {
+    display: none !important;
 }
 
 .disabledBtn {
@@ -136,14 +158,12 @@ body{
 
 /* ---- IDLOTEBOX ---- */
 .lote-box-container {
-    padding: 1rem;
-    background-color: #414040;
+    padding: 1rem;    
     display: flex;
     flex-direction: column;
     align-items: center;
     align-self: center;
-    border-radius: 15px;
-    margin-bottom: 60px;
+    margin-bottom: 1rem;
 }
 
 .lote-box-container > div {

@@ -27,7 +27,7 @@ export class SimpleConveyerBelt {
       this._item = item;
   }
 
-  play() {
+  async play() {
     if (this._item != null) {
       this.objectQueue.enqueue(this._item);
       this.objectQueue.enqueue(0);

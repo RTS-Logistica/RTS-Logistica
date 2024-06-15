@@ -8,7 +8,7 @@ using System.Text;
 
 namespace RTS
 {
-    public class PlayConveyerBeltController : WebSocketBehavior
+    public class ConveyerBeltController : WebSocketBehavior
     {   
         protected override void OnOpen()
         {
@@ -21,6 +21,11 @@ namespace RTS
         protected override void OnMessage(MessageEventArgs e)
         {
            Console.WriteLine($"CardController: {e.Data}");
+        }
+
+        public void play()
+        {
+            Send("play");
         }
     }
 }

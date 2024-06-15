@@ -12,7 +12,7 @@ namespace RTS
        
         protected override void OnOpen()
         {
-            Send("ack");
+            Send("Connected");
         }
 
         protected override void OnClose(CloseEventArgs e)
@@ -21,8 +21,9 @@ namespace RTS
 
         protected override void OnMessage(MessageEventArgs e)
         {
-            Console.WriteLine($"BatchController: {e.Data}");
+            Console.WriteLine($"Nuevo Lote de tarjetas:\n {e.Data}");
             batchData = JsonConvert.DeserializeObject<BatchRequest>(e.Data);
+            Program.conveyerBelt.play();
         }
 
         public static UserDataDTO? getUserData(long cardNumber)

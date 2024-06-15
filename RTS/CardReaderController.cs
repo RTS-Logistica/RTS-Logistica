@@ -25,19 +25,28 @@ namespace RTS
         {
             if (!e.Data.Substring(0,4).Equals("ping"))
             {
-                Console.WriteLine($"CardController: {e.Data}");
+                Console.WriteLine($"Lector de tarjetas: {e.Data}");
                 long cardNumber = JsonConvert.DeserializeObject<long>(e.Data);
                 UserDataDTO userData = BatchController.getUserData(cardNumber);
-                CardResponse cardData = new CardResponse()
+                if (userData != null)
                 {
-                    BatchId = BatchController.BatchData.BatchId,
-                    BankName = BatchController.BatchData.BankName,
-                    Slogan = BatchController.BatchData.Slogan,
-                    Logo = BatchController.BatchData.Logo,
-                    UsersData = userData
-                };
-                Program.brochureService.SendMessage(cardData);
-                Program.envelopeService.SendMessage(cardData);
+                    CardResponse cardData = new CardResponse()
+                    {
+                        BatchId = BatchController.BatchData.BatchId,
+                        BankName = BatchController.BatchData.BankName,
+                        Slogan = BatchController.BatchData.Slogan,
+                        Logo = BatchController.BatchData.Logo,
+                        UsersData = userData
+                    };
+                    Program.brochureService.SendMessage(cardData);
+                    Program.envelopeService.SendMessage(cardData);
+                    Send("correct number");
+                }
+                else
+                {
+                    Console.WriteLine($"\n\nNumero de tarjeta incorrecto.\n\n");
+                    Send("bad read");
+                }
             }
         }
     }
