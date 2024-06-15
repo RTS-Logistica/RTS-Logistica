@@ -1,8 +1,9 @@
+import { batchDataIterator } from "../simulatorTest/simulator.js";
 
 export class CentralConveyerBelt {
   constructor(url, connection, ArrayOfConveyerBelts, addItemTimer, speed) {
     this.defaultSpeed = speed;
-    this._addItemTimer = (addItemTimer <= this.defaultSpeed)?this.defaultSpeed:addItemTimer; // suplanta al if / else
+    this._addItemTimer = (addItemTimer <= this.defaultSpeed)?this.defaultSpeed:addItemTimer;
     this._rts = connection;
     this._customSpeed = speed;
     this._simpleConveyerBelts = ArrayOfConveyerBelts;
@@ -11,7 +12,7 @@ export class CentralConveyerBelt {
     });
   }
 
-  play(itemIterator) {
+  play() {
     if (this._customSpeed == 0) 
       this._customSpeed = this.defaultSpeed;
     this._playInterval = setInterval(() => {
@@ -19,8 +20,8 @@ export class CentralConveyerBelt {
         this._simpleConveyerBelts[i].play();
     }, this._customSpeed);
     this._addInterval = setInterval(() => {
-      if(itemIterator.hasNext())   
-        this._simpleConveyerBelts[0].addItem(itemIterator.get());
+      if(batchDataIterator.hasNext())   
+        this._simpleConveyerBelts[0].addItem(batchDataIterator.get());
     }, this._addItemTimer);
   }
 

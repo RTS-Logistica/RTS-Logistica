@@ -4,7 +4,7 @@ import WebSocketConnection from '../peripherals/webscketConnection.js';
 
 export let running = false;
 export let jsonBatchData;
-let currentData;
+export let batchDataIterator;
 
 export function stopSimulation() {
     running = false;
@@ -26,7 +26,7 @@ export function togglePauseSimulation() {
         centralCoveyerBelt.stop();  
         document.getElementById("stop-button").innerHTML = "RUN";
     } else {
-        centralCoveyerBelt.play(currentData);
+        centralCoveyerBelt.play();
         document.getElementById("stop-button").innerHTML = "PAUSE";
     }
 }
@@ -48,8 +48,7 @@ document.addEventListener('DOMContentLoaded', async function() {
             centralCoveyerBelt.setAddItemSpeed(parseInt(document.getElementById("addItemMilliseconds").value));
             jsonBatchData.usersData.length = parseInt(document.getElementById("maxBatchSize").value);
             connection.send(JSON.stringify(jsonBatchData));
-            currentData = new DataParse(jsonBatchData, jsonBatchData.usersData.length);
-            centralCoveyerBelt.play(currentData);
+            batchDataIterator = new DataParse(jsonBatchData, jsonBatchData.usersData.length);
             document.getElementById("speed").classList.add("disabledBtn");
             document.getElementById("maxBatchSize").classList.add("disabledBtn");
             document.getElementById("lote-id-input").classList.add("disabledBtn");
