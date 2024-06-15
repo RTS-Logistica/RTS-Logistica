@@ -21,13 +21,15 @@ const timerToAddItemOnConveyerBelt = parseInt(document.getElementById("addItemMi
 const maxSizeElementOnConveyerBelt = 9;
 const badReadTimer = 12;
 const typeObjectDraw = ['card', 'brochure', 'envelope'];
+const envelopePrintredQueueSize = 4;
+const brochurePrintredQueueSize = 3;
 
 // ------ PERIPHERALS INSTANCES ------ //
 const centralCoveyerBelt = new CentralConveyerBelt(urlConnection + "/playConveyerBelt", new WebSocketConnection(), null, timerToAddItemOnConveyerBelt, conveyerBeltSpeed);
 const fourthCoveyerBelt = new SimpleConveyerBelt(urlConnection + "/b", fourthCoveyerBeltBeltContainer, new WebSocketConnection(), null, maxSizeElementOnConveyerBelt, centralCoveyerBelt, typeObjectDraw[2]);
-const envelopePrinter = new PrintingStation(urlConnection + "/envelopePrinterStation", envelopeContainer, new WebSocketConnection(), fourthCoveyerBelt, typeObjectDraw[2], 4);
+const envelopePrinter = new PrintingStation(urlConnection + "/envelopePrinterStation", envelopeContainer, new WebSocketConnection(), fourthCoveyerBelt, typeObjectDraw[2], envelopePrintredQueueSize);
 const thirdCoveyerBelt = new SimpleConveyerBelt(urlConnection + "/c", thirdCoveyerBeltContainer, new WebSocketConnection(), envelopePrinter, maxSizeElementOnConveyerBelt, centralCoveyerBelt, typeObjectDraw[1]);  
-const brochurePriter = new PrintingStation(urlConnection + "/brochurePrinterStation", brochurePrinterContainer, new WebSocketConnection(), thirdCoveyerBelt, typeObjectDraw[1], 2);
+const brochurePriter = new PrintingStation(urlConnection + "/brochurePrinterStation", brochurePrinterContainer, new WebSocketConnection(), thirdCoveyerBelt, typeObjectDraw[1], brochurePrintredQueueSize);
 const secondCoveyerBelt = new SimpleConveyerBelt(urlConnection + "/d", secondCoveyerBeltContainer, new WebSocketConnection(), brochurePriter, maxSizeElementOnConveyerBelt, centralCoveyerBelt, typeObjectDraw[0]);  
 const cardReader = new CardReader(urlConnection + "/cardReader", cardLectorContainer, new WebSocketConnection(), secondCoveyerBelt, badReadTimer);
 const firstCoveyerBelt = new SimpleConveyerBelt(urlConnection + "/e", firstCoveyerBeltContainer, new WebSocketConnection(), cardReader, maxSizeElementOnConveyerBelt, centralCoveyerBelt, typeObjectDraw[0]);

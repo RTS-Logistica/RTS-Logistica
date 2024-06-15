@@ -27,31 +27,31 @@ export class SimpleConveyerBelt {
       this._item = item;
   }
 
-  play() {
+  async play() {
     if (this._item != null) {
       this.objectQueue.enqueue(this._item);
-      this.objectQueue.enqueue(0);
-      this.objectQueue.enqueue(0);
-      this.objectQueue.enqueue(0);
-      this.objectQueue.enqueue(0);
+      await this.freeItem();
       drawObject(this._container, this._item, this._typeObjectDraw);
       this._item = null;
+      for(let i=0; i < 4; i++) {
+        this.objectQueue.enqueue(0);
+        await this.freeItem();
+      }
     } 
     else {
       this.objectQueue.enqueue(0);
       drawHole(this._container);
     }
+    await this.freeItem();
+  }
 
+  async freeItem() {
     if (this.objectQueue.size() >= this._maxLenght) {
       let item = this.objectQueue.dequeue();
       if (item != 0){
         if(this._widget != null)
-          this._widget.addItem(item);
+          await this._widget.addItem(item);
         deleteObject(this._container, this._typeObjectDraw);
-        this.objectQueue.dequeue();
-        this.objectQueue.dequeue();
-        this.objectQueue.dequeue();
-        this.objectQueue.dequeue();
       } 
       else{
         deleteHole(this._container);
