@@ -4,7 +4,7 @@ import {drawCard, drawBrochure, drawEnvelope} from "./objectDrawers.js";
 export function drawHole(htmlContainer) {
   const hole = document.createElement("div");
   hole.className = "hole-running-belt";
-  htmlContainer.appendChild(hole);
+  htmlContainer.insertBefore(hole, htmlContainer.firstChild);
 }
 
 export function deleteHole(htmlContainer) {
@@ -26,9 +26,9 @@ export function drawObject(htmlContainer, item, objectType) {
 export function deleteObject(htmlContainer, objectType){
   const className =`${objectType}-class-container`;
 
-  const holes = htmlContainer.querySelectorAll(`.${className}`);
-  if (holes.length > 0) {
-      htmlContainer.removeChild(holes[holes.length - 1]);
+  const obj = htmlContainer.querySelectorAll(`.${className}`);
+  if (obj.length > 0) {
+      htmlContainer.removeChild(obj[obj.length - 1]);
   }
 }
 

@@ -12,7 +12,7 @@ namespace Application.DTO.Response
     public class BatchCardResponse
     {
         public readonly BatchCard _batchCard;
-        public readonly ICollection<UserData> _batchUsersData;
+        public ICollection<UserData> _batchUsersData;
 
         public BatchCardResponse(BatchCard batchCard, ICollection<UserData> batchUsersData)
         {

@@ -15,23 +15,22 @@ const brochurePrinterContainer = document.getElementById('priting-station-box-1'
 const envelopeContainer = document.getElementById('priting-station-box-2');
 
 // ------ SIMULATION VARIABLES ------ //
-const urlConnection = 'ws://127.0.0.1:5500';
-const conveyerBeltSpeed = 1000;
-const timerToAddItemOnConveyerBelt = 3000;
-const maxSizeElementOnConveyerBelt = 5;
-const arrayOfCardsNumbers = ['1', '2', '3', '4', '5', '1', '2', '3', '4', '5', '1', '2', '3', '4', '5', '1', '2', '3', '4', '5'];
+const urlConnection = 'ws://localhost:8080';
+const conveyerBeltSpeed = parseInt(document.getElementById("speed").value);
+const timerToAddItemOnConveyerBelt = parseInt(document.getElementById("addItemMilliseconds").value);;
+const maxSizeElementOnConveyerBelt = 9;
 const badReadTimer = 12;
 const typeObjectDraw = ['card', 'brochure', 'envelope'];
 
 // ------ PERIPHERALS INSTANCES ------ //
-const centralCoveyerBelt = new CentralConveyerBelt(urlConnection, new WebSocketConnection(), null, timerToAddItemOnConveyerBelt, conveyerBeltSpeed);
-const fourthCoveyerBelt = new SimpleConveyerBelt(urlConnection, fourthCoveyerBeltBeltContainer, new WebSocketConnection(), null, maxSizeElementOnConveyerBelt, centralCoveyerBelt, typeObjectDraw[2]);
-const envelopePrinter = new PrintingStation(urlConnection, envelopeContainer, new WebSocketConnection(), fourthCoveyerBelt);
-const thirdCoveyerBelt = new SimpleConveyerBelt(urlConnection, thirdCoveyerBeltContainer, new WebSocketConnection(), envelopePrinter, maxSizeElementOnConveyerBelt, centralCoveyerBelt, typeObjectDraw[1]);  
-const brochurePriter = new PrintingStation(urlConnection, brochurePrinterContainer, new WebSocketConnection(), thirdCoveyerBelt);
-const secondCoveyerBelt = new SimpleConveyerBelt(urlConnection, secondCoveyerBeltContainer, new WebSocketConnection(), brochurePriter, maxSizeElementOnConveyerBelt, centralCoveyerBelt, typeObjectDraw[0]);  
-const cardReader = new CardReader(urlConnection, cardLectorContainer, new WebSocketConnection(), secondCoveyerBelt, arrayOfCardsNumbers, badReadTimer);
-const firstCoveyerBelt = new SimpleConveyerBelt(urlConnection, firstCoveyerBeltContainer, new WebSocketConnection(), cardReader, maxSizeElementOnConveyerBelt, centralCoveyerBelt, typeObjectDraw[0]);
+const centralCoveyerBelt = new CentralConveyerBelt(urlConnection + "/playConveyerBelt", new WebSocketConnection(), null, timerToAddItemOnConveyerBelt, conveyerBeltSpeed);
+const fourthCoveyerBelt = new SimpleConveyerBelt(urlConnection + "/b", fourthCoveyerBeltBeltContainer, new WebSocketConnection(), null, maxSizeElementOnConveyerBelt, centralCoveyerBelt, typeObjectDraw[2]);
+const envelopePrinter = new PrintingStation(urlConnection + "/envelopePrinterStation", envelopeContainer, new WebSocketConnection(), fourthCoveyerBelt, typeObjectDraw[2], 4);
+const thirdCoveyerBelt = new SimpleConveyerBelt(urlConnection + "/c", thirdCoveyerBeltContainer, new WebSocketConnection(), envelopePrinter, maxSizeElementOnConveyerBelt, centralCoveyerBelt, typeObjectDraw[1]);  
+const brochurePriter = new PrintingStation(urlConnection + "/brochurePrinterStation", brochurePrinterContainer, new WebSocketConnection(), thirdCoveyerBelt, typeObjectDraw[1], 2);
+const secondCoveyerBelt = new SimpleConveyerBelt(urlConnection + "/d", secondCoveyerBeltContainer, new WebSocketConnection(), brochurePriter, maxSizeElementOnConveyerBelt, centralCoveyerBelt, typeObjectDraw[0]);  
+const cardReader = new CardReader(urlConnection + "/cardReader", cardLectorContainer, new WebSocketConnection(), secondCoveyerBelt, badReadTimer);
+const firstCoveyerBelt = new SimpleConveyerBelt(urlConnection + "/e", firstCoveyerBeltContainer, new WebSocketConnection(), cardReader, maxSizeElementOnConveyerBelt, centralCoveyerBelt, typeObjectDraw[0]);
 
 const arrayOfCoveyerBeltys = [firstCoveyerBelt, secondCoveyerBelt, thirdCoveyerBelt, fourthCoveyerBelt];
 centralCoveyerBelt._simpleConveyerBelts = arrayOfCoveyerBeltys;

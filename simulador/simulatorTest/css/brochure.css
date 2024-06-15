@@ -1,12 +1,49 @@
 .brochure-class-container {
-    width: 400px;
+    width: 5vw;
+    height: 12vh;
     background: white;
-    border-radius: 15px;
+    border-radius: 0.1rem;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    padding: 20px;
+    padding: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    font-size: 0.5rem;
+    padding-top: 30px;
+}
+
+.printerdsQueue {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.printerdsQueue .brochure-class-container {
+    width: 1.7vw;
+    height: 4vh;
+    padding: 0.5rem;
+    margin-top: 1rem;
+    margin-right: 0.5rem;
+    justify-content: flex-start;
+    overflow: hidden;
+}
+
+.printerdsQueue .brochure-class-container .card-class-container {
+    display: none;
+}
+
+
+.printerdsQueue .brochure-class-container .info-item {
+    font-size: 0.3rem;
+    margin: 0px;
+}
+
+.brochure-class-container .personal-info .card-class-container {
+    height: 0.8vw;
+    width: 2vw;
+    font-size: 0.2rem;
+    border-radius: 0.3rem;
 }
 
 .personal-info {

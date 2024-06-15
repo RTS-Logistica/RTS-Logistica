@@ -1,4 +1,5 @@
-﻿using Application.Interfaces.IServices;
+﻿using Application.DTO.Response;
+using Application.Interfaces.IServices;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
@@ -24,6 +25,7 @@ namespace GatewayBankAPI.Controllers
             var result = await _service.GetBatchCardById(id);
             if (result == null)
                 return NotFound("No existe un Lote de Tarjetas con ese ID");
+            Console.WriteLine(System.Text.Json.JsonSerializer.Serialize(result));
             return new JsonResult(result) { StatusCode = 200 };
         }
     }

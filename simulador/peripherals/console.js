@@ -17,7 +17,7 @@ export default class Console {
         let self = this;
 
         this.write('Conectando...');
-        connection.connect(url, ()=> {self.write()});
+        connection.connect(url, (message)=> {self.write(message.data)});
         this._query.addEventListener("keyup", function(event) {
             if (event.keyCode === 13) {
                 self.send();

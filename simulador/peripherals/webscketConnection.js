@@ -5,7 +5,7 @@ export default class WebSocketConnection {
         this.socket !== undefined && this.socket.close();
         this.socket = new WebSocket(url); 
         this.socket.onmessage = onmessageCallback; 
-        this.socket.onclose = (e) => { this.connect(this._url, this.socket.onmessage); };
+        //this.socket.onclose = (e) => { this.connect(this._url, this.socket.onmessage); };
     }
 
     disconnect(){

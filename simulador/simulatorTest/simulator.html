@@ -12,44 +12,55 @@
 <body>
     <div class="main">        
         <div class="lote-box-container">
-            <input type="text" id="lote-id-input" placeholder="Número de lote">
-            <button id="start-button" class="action-button">START</button>
-            <button id="stop-button" class="action-button">STOP</button>
+            <div>
+                <span>Cantida max. por lote: </span>
+                <input type="number" id="maxBatchSize" placeholder="Cantidad max de tarjetas." value="1">
+            </div>
+            <div>
+                <span>Milisegundos por movimiento de cinta: </span>
+                <input type="number" id="speed" placeholder="Numero entero (default 1000)." value="1000">
+            </div>
+            <div>
+                <span>Milisegundos entre tarjetas agregadas: </span>
+                <input type="number" id="addItemMilliseconds" placeholder="Numero entero (default 1000)." value="4000">
+            </div>
+            <div>
+                <span>Numero de lote de tarjetas: </span>
+                <input type="text" id="lote-id-input" placeholder="Número de lote" value="1">
+                <button id="start-button" class="action-button">START</button>
+                <button id="stop-button" class="action-button">STOP</button>
+            </div>
         </div> 
 
         <div class="conveyer-belt-container">
             <div id="conveyer-belt-1" class="singel-conveyer-belt">
             </div>
+            <div id="card-lector">
+                <div class="monitor-lector-container">
+                    <div class="monitor-text">
+                    </div>
+                    <div class="monitor-text">
+                        <span># </span>
+                        <span id="cardCounter"></span>
+                    </div>
+                </div>
+            </div>
             <div id="conveyer-belt-2" class="singel-conveyer-belt">
             </div>
+            <div class="priting-station-box" id="priting-station-box-1">
+                <img class="printer-container" src="./images/printerHp.png" id="brochure-printer">
+                <div class="printerdsQueue"></div>
+            </div>
             <div id="conveyer-belt-3" class="singel-conveyer-belt">
+            </div>
+            <div class="priting-station-box" id="priting-station-box-2">
+                <img class="printer-container" src="./images/printerHp.png" id="envelope-printer">
+                <div class="printerdsQueue"></div>
             </div>
             <div id="conveyer-belt-4" class="singel-conveyer-belt">
             </div>
         </div>
        
-        <div id="card-lector">
-            <div class="monitor-lector-container">
-                <div class="monitor-text">
-                </div>
-            </div>
-        </div>
-
-        <div class="priting-station-box" id="priting-station-box-1">
-            <div class="printer-container" id="brochure-printer"></div>
-            <div class="monitor-container">
-                <div class="monitor-text">
-                </div>
-            </div>
-        </div>
-
-        <div class="priting-station-box" id="priting-station-box-2">
-            <div class="printer-container" id="envelope-printer"></div>
-            <div class="monitor-container">
-                <div class="monitor-text"></div>
-            </div>
-        </div>
-
         <!--div class="display-container">
             <div class="display-message" id="displayMessage">Mensaje de prueba</div>
         </div-->

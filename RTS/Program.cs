@@ -1,15 +1,28 @@
-﻿using WebSocketSharp.Server;
+﻿using System.Diagnostics;
+using WebSocketSharp.Server;
 
 namespace RTS
 {
     class Program
     {
+        public static BrochurePrinterStationController brochureService;
+        public static EnvelopePrinterStationController envelopeService;
+
         static void Main(string[] args)
         {
             string serverAddress = "ws://localhost:8080";
             WebSocketServer server = new WebSocketServer(serverAddress);
             server.AddWebSocketService<BatchController>("/batch");
-            server.AddWebSocketService<CardController>("/card");
+            server.AddWebSocketService<PlayConveyerBeltController>("/playConveyerBelt");
+            server.AddWebSocketService<CardReaderController>("/cardReader");
+            server.AddWebSocketService("/brochurePrinterStation", () => {
+                brochureService = new BrochurePrinterStationController();
+                return brochureService;
+            });
+            server.AddWebSocketService("/envelopePrinterStation", () => {
+                envelopeService = new EnvelopePrinterStationController();
+                return envelopeService;
+            });
             server.Start();
             Console.WriteLine($"Servidor WebSocket iniciado en {serverAddress}");
             Console.WriteLine("Presione cualquier tecla para detener el servidor.");

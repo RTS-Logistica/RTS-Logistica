@@ -3,45 +3,64 @@ body{
     padding: 0px;
     background-image: url(https://media.istockphoto.com/id/695001370/es/foto/textura-hormig%C3%B3n-pulido-piso-de-concreto-%C3%A1spero-fondo-de-construcci%C3%B3n.jpg?s=612x612&w=0&k=20&c=y26WltZ7eiANTyRzuxJVCdXFG33a6fm-nrQxpEWwUQY=); 
     background-position: center;
+    overflow: hidden;
 }   
 
 .main{
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     width: 100vw;
-    height: 100vh;
+    height: 70vh;
+}
+
+.disabledBtn {
+    background-color: grey !important;
+    color: lightgray !important;
 }
 
 /* ---- CONVEROYBELT ---- */
 .conveyer-belt-container{
     display: flex;
-    height: 20vh;
-    width: 100%;
-    background-color: black;
+    height: 15vw;
+    width: 120vw;
+    background-color: rgb(129, 95, 95, 0);
+}
+
+#conveyer-belt-1 {
+    width: 9vw;
+}
+
+#conveyer-belt-2 {
+    width: 18vw;
+}
+
+#conveyer-belt-3 {
+    width: 18vw;
+}
+
+#conveyer-belt-4 {
+    width: 45vw;
 }
 
 .singel-conveyer-belt {
-    height: 100%;
-    width: 25%;
-    background-color: rgb(37, 37, 37);
+    /*background-color: rgb(37, 37, 37);*/
+    background-image: url(../images/velt.jpg); 
+    background-size: cover;
     display: flex;
     align-items: center;
-    padding: 5px;
-    border-top: 15px solid red;
-    border-bottom: 15px solid red;
 }
 
 /* ---- CARDREADER ---- */
 #card-lector{
-    position: absolute;
-    width: 6vw;
-    height: 12vh;
+    height: 15vw;
+    width: 7vw;
     background-image: url(../../simulador/images/scanner.jpg);
-    background-size: cover; 
+    background-size: contain; 
     background-position: center; 
+    aspect-ratio: 0.48;
     left: 25%;
-    border-radius: 5%;
     display: flex;
     flex-direction: column;
     justify-content: end;
@@ -50,23 +69,19 @@ body{
 /* ---- PRINTINGSTATIONS ---- */
 
 .priting-station-box{
-    position: absolute;
-    width: 6vw;
-    height: 12vh;
+    height: 15vw;
+    width: 10vw;
     background-image: url(../../simulador/images/madera.jpg);
     background-size: cover; 
     background-position: center;
-    border-radius: 5%;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
     align-items: center;    
-    padding: 15px;
 }
 
 .printer-container{
-    width: 100%;
-    height: 300px;
+    height: 50%;
+    margin-top: 10px;
     background-image: url(../../simulador/images/printerHp.png);
     background-size: cover; 
     background-position: center;
@@ -92,70 +107,81 @@ body{
 }
 
 .monitor-lector-container{
-    height: 20%;
     width: 100%;
-    background-image: url(../../simulador/images/monitorXL.png);
+    /*background-image: url(../../simulador/images/monitorXL.png);*/
     background-size: cover;
     background-position: center;
-    position: absolute;
-    top: 100%;
-    margin-top: 20px;
 }
 
 .monitor-text {
-    transform: translate(-50%, -50%);
+    /*transform: translate(-50%, -50%);*/
     color: white;
     text-align: left;
     width: 150px;
-    height: 90px;
-    line-height: 30px;
+    /*height: 90px;*/
+    padding-left: 5px;
+}
+
+.monitor-text p {
+    position: relative;
+    z-index: 1;
 }
 
 /* ---- CONVEROYBELTHOLE ---- */
 .hole-running-belt {
-    width: 250px;
+    width: 1vw;
     height: 300px;
-    background-color: red;  
+    background-color: rgba(78, 46, 46,0);  
 }
 
 /* ---- IDLOTEBOX ---- */
 .lote-box-container {
-    position: absolute;
-    left: 0%;
-    top: 0;
-    width: 50vw;
-    height: 30vh;
+    padding: 1rem;
     background-color: #414040;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
+    align-self: center;
     border-radius: 15px;
+    margin-bottom: 60px;
+}
+
+.lote-box-container > div {
+    display: flex;
+    font-size: x-large;
+}
+
+.lote-box-container  span {
+    color: rgb(223, 216, 216);
+    margin-right: 1rem;
+}
+
+.lote-box-container input {
+    font-size: x-large;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    text-align: center;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
 }
 
 #lote-id-input {
-    padding: 5px;
-    margin-right: 10px;
-    border: 1px solid #ccc;
-    border-radius: 15px;
-    height: 20%;
-    width: 90%;
-    text-align: center;
+    margin-bottom: 0px;
 }
 
 .action-button {
-    padding: 5px 10px;
+    padding: 0px 10px;
     border: none;
     border-radius: 15px;
     cursor: pointer;
-    height: 20%;
-    width: 40%;
     text-align: center;
 }
 
 #start-button {
+    font-size: x-large;
     background-color: #007bff;
     color: white;
+    margin-right: 1rem;
 }
 
 #start-button:hover {
@@ -163,6 +189,7 @@ body{
 }
 
 #stop-button {
+    font-size: x-large;
     background-color: #ff0000;
     color: white;
 }
@@ -174,7 +201,7 @@ body{
 /*---- DISPLAY ---- */
 .display-container {
     width: 50vw;
-    height: 10vh;
+    height: 5vw;
     position: absolute; 
     background-color: black;
     border-radius: 15px;

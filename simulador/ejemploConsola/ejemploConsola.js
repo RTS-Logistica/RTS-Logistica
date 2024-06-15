@@ -1,5 +1,5 @@
-import Console from "../connection/console.js";
-import WebSocketConnection from "../connection/webscketConnection.js";
+import Console from "../peripherals/console.js"
+import WebSocketConnection from "../peripherals/webscketConnection.js";
                                
 document.addEventListener('DOMContentLoaded', function() {
     let domain = 'ws://localhost:8080';

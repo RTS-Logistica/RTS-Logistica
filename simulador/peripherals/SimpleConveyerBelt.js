@@ -1,5 +1,7 @@
 import Queue from "./Collections/Queue.js";
 import { drawObject, deleteObject, drawHole, deleteHole } from "../simulatorTest/drawers/drawersConstroller.js";
+import { envelopePrinter } from "../simulatorTest/initializations.js";
+import { stopSimulation, running, jsonBatchData } from "../simulatorTest/simulator.js";
 
 export class SimpleConveyerBelt {
   constructor(url, container, connection,
@@ -13,7 +15,7 @@ export class SimpleConveyerBelt {
     this._item = null;
     this._typeObjectDraw = typeObjectDraw;
     this.objectQueue = new Queue();
-    connection.connect(url, () => {});
+    //connection.connect(url, () => {});
   }
 
   addItem(item) {
@@ -27,7 +29,11 @@ export class SimpleConveyerBelt {
 
   play() {
     if (this._item != null) {
-      this.objectQueue.enqueue(1);
+      this.objectQueue.enqueue(this._item);
+      this.objectQueue.enqueue(0);
+      this.objectQueue.enqueue(0);
+      this.objectQueue.enqueue(0);
+      this.objectQueue.enqueue(0);
       drawObject(this._container, this._item, this._typeObjectDraw);
       this._item = null;
     } 
@@ -36,17 +42,25 @@ export class SimpleConveyerBelt {
       drawHole(this._container);
     }
 
-    if (this.objectQueue.size() == this._maxLenght) {
+    if (this.objectQueue.size() >= this._maxLenght) {
       let item = this.objectQueue.dequeue();
       if (item != 0){
         if(this._widget != null)
           this._widget.addItem(item);
-        deleteObject(this._container, this._item, _typeObjectDraw);
+        deleteObject(this._container, this._typeObjectDraw);
+        this.objectQueue.dequeue();
+        this.objectQueue.dequeue();
+        this.objectQueue.dequeue();
+        this.objectQueue.dequeue();
       } 
       else{
         deleteHole(this._container);
       }  
     }
+    if(this._widget != null)
+      this._widget.ping();
+    else if(running && envelopePrinter.getCardCounter() >= jsonBatchData.usersData.length)
+      stopSimulation();
   }
 
   stop() {
